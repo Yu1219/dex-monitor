@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231b2433%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230b0f16%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22ln%22%20x1%3D%220%22%20y1%3D%221%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2360a5fa%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2322c55e%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22url%28%23bg%29%22/%3E%3Cg%20stroke%3D%22%233b4a63%22%20stroke-width%3D%2216%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M196%2096v40M256%2096v40M316%2096v40M196%20376v40M256%20376v40M316%20376v40M96%20196h40M96%20256h40M96%20316h40M376%20196h40M376%20256h40M376%20316h40%22/%3E%3C/g%3E%3Crect%20x%3D%22136%22%20y%3D%22136%22%20width%3D%22240%22%20height%3D%22240%22%20rx%3D%2236%22%20fill%3D%22%23141c28%22%20stroke%3D%22%233b4a63%22%20stroke-width%3D%2212%22/%3E%3Cpolyline%20points%3D%22170%2C316%20222%2C262%20258%2C288%20336%2C200%22%20fill%3D%22none%22%20stroke%3D%22url%28%23ln%29%22%20stroke-width%3D%2222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%22336%22%20cy%3D%22200%22%20r%3D%2216%22%20fill%3D%22%2322c55e%22/%3E%3Cpath%20d%3D%22M432%2060a54%2054%200%201%200%2038%2092%2044%2044%200%201%201-38-92z%22%20fill%3D%22%23f59e0b%22/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-title" content="DEX Monitor">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0f1115">
+<link rel="manifest" href="manifest.webmanifest">
+<title>24/7 DEX Market Monitor — 半導体・主要指標</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --line:#262b35; --text:#e6e8ec; --muted:#8a93a3;
+    --up:#22c55e; --down:#ef4444; --accent:#60a5fa; --warn:#f59e0b;
+  }
+  @media (prefers-color-scheme: light){
+    :root{--bg:#f6f7f9; --panel:#fff; --line:#e3e6eb; --text:#14171c; --muted:#5d6675; --up:#15803d; --down:#b91c1c; --accent:#2563eb;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif}
+  header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+  h1{font-size:16px;margin:0;font-weight:650}
+  h1.brand{display:flex;align-items:center;gap:8px}
+  .logo{border-radius:7px;flex:none}
+  .status{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+  .dot.ok{background:var(--up)} .dot.err{background:var(--down)}
+  .mkt{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line)}
+  .mkt.closed{color:var(--warn);border-color:var(--warn)}
+  .mkt.open{color:var(--up);border-color:var(--up)}
+  .ctrl{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+  select,input{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:4px 6px;font-size:12px}
+  main{padding:16px;max-width:1200px;margin:0 auto}
+  section{margin-bottom:22px}
+  h2{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;position:relative;overflow:hidden}
+  .card .sym{font-weight:650;font-size:13px}
+  .card .name{color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card .px{font-size:20px;font-variant-numeric:tabular-nums;margin-top:4px}
+  .card .chg{font-size:13px;font-variant-numeric:tabular-nums}
+  .card .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-top:6px;font-variant-numeric:tabular-nums}
+  .card .basis{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .card.flash-up{box-shadow:inset 0 0 0 1px var(--up)} .card.flash-down{box-shadow:inset 0 0 0 1px var(--down)}
+  .card.missing{opacity:.45}
+  canvas.spark{display:block;width:100%;height:28px;margin-top:6px}
+  .up{color:var(--up)} .down{color:var(--down)}
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-variant-numeric:tabular-nums}
+  th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:right;font-size:12px}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:600;cursor:pointer;user-select:none}
+  tr:last-child td{border-bottom:none}
+  .note{color:var(--muted);font-size:12px;line-height:1.6}
+  .err-box{background:rgba(239,68,68,.1);border:1px solid var(--down);border-radius:8px;padding:10px;margin-bottom:16px;display:none;font-size:12px}
+  .tablewrap{overflow-x:auto}
+  .card{cursor:pointer} .card:hover{border-color:var(--accent)} .card.missing{cursor:default}
+  tr.rowlink{cursor:pointer} tr.rowlink:hover td{background:rgba(96,165,250,.06)}
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px}
+  .modal.open{display:flex}
+  .modal-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;width:min(1100px,100%);height:min(680px,92vh);display:flex;flex-direction:column;overflow:hidden}
+  .cm-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 14px;border-bottom:1px solid var(--line)}
+  .cm-title b{font-size:16px} .cm-title span{color:var(--muted);font-size:12px}
+  .cm-px{font-variant-numeric:tabular-nums;font-size:15px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{background:transparent;color:var(--text);border:0;border-right:1px solid var(--line);padding:5px 12px;font-size:12px;cursor:pointer}
+  .seg button:last-child{border-right:0}
+  .seg button.on{background:var(--accent);color:#fff}
+  .cm-ext{margin-left:auto;color:var(--accent);font-size:12px;text-decoration:none}
+  .cm-close{background:transparent;border:0;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
+  .cm-body{position:relative;flex:1;min-height:0}
+  #cmChart{position:absolute;inset:0}
+  .cm-msg{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:13px;background:var(--panel)}
+  .cm-foot{padding:6px 14px;color:var(--muted);font-size:11px;border-top:1px solid var(--line)}
+  a.chartlink{display:inline-flex;align-items:center;gap:6px;color:inherit;text-decoration:none}
+  a.chartlink .ico{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:rgba(96,165,250,.14);color:var(--accent);flex:none}
+  a.chartlink:hover .ico{background:var(--accent);color:#fff}
+  a.chartlink:hover .sym, td a.chartlink:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<header>
+  <h1 class="brand"><svg class="logo" width="28" height="28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="lbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b2433"/><stop offset="1" stop-color="#0b0f16"/></linearGradient><linearGradient id="lln" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#22c55e"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="url(#lbg)"/><g stroke="#3b4a63" stroke-width="16" stroke-linecap="round"><path d="M196 96v40M256 96v40M316 96v40M196 376v40M256 376v40M316 376v40M96 196h40M96 256h40M96 316h40M376 196h40M376 256h40M376 316h40"/></g><rect x="136" y="136" width="240" height="240" rx="36" fill="#141c28" stroke="#3b4a63" stroke-width="12"/><polyline points="170,316 222,262 258,288 336,200" fill="none" stroke="url(#lln)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><circle cx="336" cy="200" r="16" fill="#22c55e"/><path d="M432 60a54 54 0 1 0 38 92 44 44 0 1 1-38-92z" fill="#f59e0b"/></svg><span>24/7 DEX Monitor</span></h1>
+  <span class="status"><span class="dot" id="dot"></span><span id="statusText">接続中…</span></span>
+  <span class="mkt" id="mktState">—</span>
+  <div class="ctrl">
+    更新間隔
+    <select id="interval">
+      <option value="3000">3秒</option>
+      <option value="5000" selected>5秒</option>
+      <option value="15000">15秒</option>
+      <option value="60000">60秒</option>
+    </select>
+  </div>
+</header>
+
+<main>
+  <div class="err-box" id="errBox"></div>
+  <div id="groups"></div>
+
+  <section>
+    <h2>trade.xyz 全銘柄</h2>
+    <div style="margin-bottom:8px"><input id="filter" placeholder="絞り込み（例: NVDA, GOLD）" style="width:220px"></div>
+    <div class="tablewrap">
+      <table id="allTable">
+        <thead><tr>
+          <th data-k="sym">銘柄</th><th data-k="mark">Mark</th><th data-k="chg">24h%</th>
+          <th data-k="basis">Mark−Oracle</th><th data-k="fundAnn">Funding(年率)</th>
+          <th data-k="oiUsd">OI (USD)</th><th data-k="vlm">24h出来高</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="note">
+    <p><b>データ元:</b> Hyperliquid 公開API（<code>api.hyperliquid.xyz/info</code>）。株・指数・コモディティは HIP-3 の trade.xyz（dex: <code>xyz</code>）、BTC/ETH は Hyperliquid 本体の perp。ラッセル2000（IWM連動）は Lighter（<code>mainnet.zklighter.elliot.ai</code>）の perp で、出来高が小さいため値が飛びやすい点に注意。</p>
+    <p><b>操作:</b> カードや表の行をクリックするとローソク足チャート（1・5・15・60分足、直近24時間）が開きます。チャートアイコンは取引所のチャートページへのリンクです。カードのミニチャートは直近24時間の15分足終値です。</p>
+    <p><b>読み方:</b> 「24h%」は24時間前の価格比で、金曜終値比ではありません。「Mark−Oracle」は DEX 上の値付けとオラクル基準価格の乖離で、原市場が閉まっている間は DEX 側の需給がどちらに傾いているかの目安になります。週末の価格は原資産の取引ではなく perp の需給で付いた値なので、月曜の寄り付きと一致する保証はありません。投資判断はご自身で。</p>
+  </section>
+</main>
+
+<div id="chartModal" class="modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <div class="cm-head">
+      <div class="cm-title"><b id="cmTitle"></b> <span id="cmName"></span></div>
+      <div class="cm-px"><span id="cmPx"></span> <span id="cmChg"></span></div>
+      <div id="cmIv" class="seg">
+        <button data-iv="1m">1分</button><button data-iv="5m">5分</button><button data-iv="15m">15分</button><button data-iv="1h">60分</button>
+      </div>
+      <a id="cmLink" class="cm-ext" target="_blank" rel="noopener">trade.xyzで開く ↗</a>
+      <button id="cmClose" class="cm-close" aria-label="閉じる">×</button>
+    </div>
+    <div class="cm-body"><div id="cmChart"></div><div id="cmMsg" class="cm-msg">読み込み中…</div></div>
+    <div class="cm-foot">直近24時間 · 時刻は端末の現地時間 · 出来高は枚数ベース</div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const API = "https://api.hyperliquid.xyz/info";
+
+  // 監視グループ。trade.xyz に存在しない銘柄は自動的に薄く表示される（エラーにはならない）。
+  const GROUPS = [
+    { title: "半導体", items: [
+      ["NVDA","NVIDIA"],["AMD","AMD"],["AVGO","Broadcom"],["TSM","TSMC"],["MU","Micron"],
+      ["ASML","ASML"],["AMAT","Applied Materials"],["LRCX","Lam Research"],["MRVL","Marvell"],
+      ["INTC","Intel"],["ARM","Arm"],["QCOM","Qualcomm"],["SMSN","Samsung"],["SKHX","SK hynix"],
+      ["SNDK","SanDisk"],["WDC","Western Digital"],["KIOXIA","キオクシア"],["SMH","半導体ETF"],["SOXL","半導体3倍ETF"]
+    ]},
+    { title: "株価指数", items: [
+      ["XYZ100","Nasdaq-100 連動"],["SP500","S&P 500"],["IWM","ラッセル2000（IWM連動・Lighter）","l"],["JP225","日経225"],["KR200","KOSPI 200"],
+      ["NIFTY","Nifty 50"],["EWJ","日本株ETF"],["EWT","台湾株ETF"],["EWY","韓国株ETF"]
+    ]},
+    { title: "コモディティ・為替・債券", items: [
+      ["GOLD","金"],["SILVER","銀"],["CL","WTI原油"],["BRENTOIL","ブレント原油"],["NATGAS","天然ガス"],["COPPER","銅"],
+      ["JPY","USD/JPY"],["EUR","EUR/USD"],["GBP","GBP/USD"],["TLT","米長期債ETF"]
+    ]},
+    { title: "クリプト（参考）", src: "m", items: [["BTC","Bitcoin"],["ETH","Ethereum"],["HYPE","Hyperliquid"]] }
+  ];
+
+  const state = { xyz: new Map(), main: new Map(), lt: new Map(), hist: new Map(), last: new Map(), sortKey: "oiUsd", sortDir: -1 };
+  let timer = null;
+
+  const $ = s => document.querySelector(s);
+  const fmtPx = v => {
+    if (v == null || !isFinite(v)) return "—";
+    const a = Math.abs(v);
+    const d = a >= 1000 ? 2 : a >= 10 ? 2 : a >= 1 ? 4 : 5;
+    return v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  };
+  const fmtPct = v => (v == null || !isFinite(v)) ? "—" : (v >= 0 ? "+" : "") + v.toFixed(2) + "%";
+  const fmtBig = v => {
+    if (v == null || !isFinite(v)) return "—";
+    const a = Math.abs(v);
+    if (a >= 1e9) return "$" + (v/1e9).toFixed(2) + "B";
+    if (a >= 1e6) return "$" + (v/1e6).toFixed(1) + "M";
+    if (a >= 1e3) return "$" + (v/1e3).toFixed(0) + "K";
+    return "$" + v.toFixed(0);
+  };
+  const cls = v => v > 0 ? "up" : v < 0 ? "down" : "";
+  // チャートページのURL（trade.xyz銘柄はtrade.xyz、BTC等はHyperliquid本体）
+  const chartUrl = (sym, src) => src === "m" ? `https://app.hyperliquid.xyz/trade/${encodeURIComponent(sym)}`
+    : src === "l" ? `https://app.lighter.xyz/trade/${encodeURIComponent(sym)}`
+    : `https://app.trade.xyz/?market=${encodeURIComponent(sym)}&chart=candles`;
+  const VENUE = { x: "trade.xyz", m: "Hyperliquid", l: "Lighter" };
+  const srcMap = src => src === "m" ? state.main : src === "l" ? state.lt : state.xyz;
+  const ICON = `<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2 13h12M3 10l3-3 2.5 2L13 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+  async function info(body) {
+    const r = await fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }
+
+  function parse(res) {
+    const out = new Map();
+    if (!Array.isArray(res) || res.length < 2) return out;
+    const [meta, ctxs] = res;
+    (meta.universe || []).forEach((u, i) => {
+      const c = ctxs[i]; if (!c || u.isDelisted) return;
+      const sym = String(u.name).replace(/^[a-z0-9]+:/, "");
+      const mark = +c.markPx, prev = +c.prevDayPx, oracle = +c.oraclePx, fund = +c.funding, oi = +c.openInterest;
+      out.set(sym, {
+        sym, mark, prev, oracle,
+        chg: prev ? (mark / prev - 1) * 100 : NaN,
+        basis: oracle ? (mark / oracle - 1) * 100 : NaN,
+        fundAnn: fund * 24 * 365 * 100,           // hourly funding → annualized %
+        oiUsd: oi * mark,
+        vlm: +c.dayNtlVlm
+      });
+    });
+    return out;
+  }
+
+  // 米国株式市場のステータス（NY時間、祝日は未考慮）
+  function usMarket() {
+    const ny = new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
+    const d = ny.getDay(), m = ny.getHours() * 60 + ny.getMinutes();
+    if (d === 0 || d === 6) return ["closed", "米国市場: 週末休場 → DEX価格のみ"];
+    if (m >= 570 && m < 960) return ["open", "米国市場: 取引時間中"];
+    if (m >= 240 && m < 570) return ["closed", "米国市場: プレマーケット時間帯"];
+    if (m >= 960 && m < 1200) return ["closed", "米国市場: アフターマーケット時間帯"];
+    return ["closed", "米国市場: 時間外"];
+  }
+
+  // ── ミニチャート：15分足で直近24時間を保持（起動時に過去分を取得し、以後は現在値で更新） ──
+  const SPARK_MS = 15 * 60 * 1000, SPARK_LEN = 97;
+  const IV_MS = { "1m": 60e3, "5m": 300e3, "15m": 900e3, "1h": 3600e3 };
+  const coinOf = (sym, src) => src === "m" ? sym : src === "l" ? sym : "xyz:" + sym;
+
+  function pushHist(key, px) {
+    if (!isFinite(px)) return;
+    const h = state.hist.get(key) || [];
+    const bucket = Math.floor(Date.now() / SPARK_MS) * SPARK_MS;
+    const last = h[h.length - 1];
+    if (last && last.t === bucket) last.c = px; else h.push({ t: bucket, c: px });
+    while (h.length > SPARK_LEN) h.shift();
+    state.hist.set(key, h);
+  }
+
+  async function candles(coin, interval, ms) {
+    const now = Date.now();
+    const res = await info({ type: "candleSnapshot", req: { coin, interval, startTime: now - ms, endTime: now } });
+    return Array.isArray(res) ? res : [];
+  }
+
+  // ── Lighter（ラッセル2000連動 IWM など、Hyperliquid にない銘柄） ──
+  const LT_API = "https://mainnet.zklighter.elliot.ai/api/v1/";
+  const LT_IDS = {};                                  // symbol → market_id（初回取得時に記録）
+  const LT_WANT = new Set(GROUPS.flatMap(g => g.items.filter(i => i[2] === "l").map(i => i[0])));
+  async function lighterTickers() {
+    const r = await fetch(LT_API + "orderBookDetails");
+    if (!r.ok) throw new Error("Lighter HTTP " + r.status);
+    const j = await r.json(), out = new Map();
+    (j.order_book_details || []).forEach(o => {
+      if (!LT_WANT.has(o.symbol) || o.status !== "active") return;
+      LT_IDS[o.symbol] = o.market_id;
+      const mark = +o.mark_price, last = +o.last_trade_price, idx = +o.index_price, chg = +o.daily_price_change;
+      out.set(o.symbol, {
+        sym: o.symbol, mark, oracle: idx, chg,
+        prev: last / (1 + chg / 100),
+        basis: idx ? (mark / idx - 1) * 100 : NaN,
+        fundAnn: NaN, oiUsd: +o.open_interest_usd, vlm: +o.daily_quote_token_volume
+      });
+    });
+    return out;
+  }
+  async function lighterCandles(sym, interval, ms) {
+    const id = LT_IDS[sym]; if (id == null) return [];
+    const now = Math.floor(Date.now() / 1000), from = now - Math.floor(ms / 1000);
+    const n = Math.ceil(ms / IV_MS[interval]) + 1;
+    const r = await fetch(LT_API + `candles?market_id=${id}&resolution=${interval}&start_timestamp=${from}&end_timestamp=${now}&count_back=${n}`);
+    if (!r.ok) throw new Error("Lighter HTTP " + r.status);
+    const j = await r.json();
+    return (j.c || []).map(c => ({ t: c.t, o: c.o, h: c.h, l: c.l, c: c.c, v: c.v }));
+  }
+  function candlesFor(src, sym, interval, ms) {
+    return src === "l" ? lighterCandles(sym, interval, ms) : candles(coinOf(sym, src), interval, ms);
+  }
+
+  // API の重み制限（1分あたり）に収まるよう、1銘柄ずつ間隔をあけて取得
+  const histQueue = [], histDone = new Set();
+  let histRunning = false;
+  function queueHistory() {
+    document.querySelectorAll(".card").forEach(el => {
+      if (el.style.display === "none") return;
+      const key = el.dataset.src + ":" + el.dataset.sym;
+      if (!histDone.has(key) && !histQueue.some(q => q.key === key))
+        histQueue.push({ key, sym: el.dataset.sym, src: el.dataset.src });
+    });
+    if (!histRunning) runHistory();
+  }
+  async function runHistory() {
+    histRunning = true;
+    while (histQueue.length) {
+      const job = histQueue.shift();
+      try {
+        const cs = await candlesFor(job.src, job.sym, "15m", 24 * 3600 * 1000);
+        const live = state.hist.get(job.key) || [];
+        const merged = cs.map(c => ({ t: c.t, c: +c.c }));
+        const lastLive = live[live.length - 1];
+        if (lastLive) {
+          const m = merged[merged.length - 1];
+          if (m && m.t === lastLive.t) m.c = lastLive.c; else if (!m || lastLive.t > m.t) merged.push(lastLive);
+        }
+        state.hist.set(job.key, merged.slice(-SPARK_LEN));
+        histDone.add(job.key);
+        const el = document.querySelector(`.card[data-sym="${job.sym}"][data-src="${job.src}"]`);
+        if (el) drawSpark(el.querySelector("canvas"), state.hist.get(job.key).map(p => p.c));
+        await sleep(1500);
+      } catch (e) {
+        histQueue.unshift(job);           // 制限に当たったら少し待って再試行
+        await sleep(15000);
+      }
+    }
+    histRunning = false;
+  }
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  function drawSpark(cv, data) {
+    const dpr = window.devicePixelRatio || 1;
+    const w = cv.clientWidth, h = cv.clientHeight;
+    if (!w) return;
+    cv.width = w * dpr; cv.height = h * dpr;
+    const ctx = cv.getContext("2d"); ctx.scale(dpr, dpr);
+    if (!data || data.length < 2) return;
+    const lo = Math.min(...data), hi = Math.max(...data), rng = hi - lo || 1;
+    ctx.beginPath();
+    data.forEach((v, i) => {
+      const x = (i / (data.length - 1)) * w, y = h - 2 - ((v - lo) / rng) * (h - 4);
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    });
+    const up = data[data.length - 1] >= data[0];
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue(up ? "--up" : "--down");
+    ctx.lineWidth = 1.5; ctx.stroke();
+  }
+
+  function buildGroups() {
+    const root = $("#groups"); root.innerHTML = "";
+    GROUPS.forEach((g, gi) => {
+      const sec = document.createElement("section");
+      sec.innerHTML = `<h2>${g.title}</h2><div class="grid"></div>`;
+      const grid = sec.querySelector(".grid");
+      g.items.forEach(([sym, name, itemSrc]) => {
+        const src = itemSrc || g.src || "x";
+        const id = `c-${gi}-${sym}`;
+        const el = document.createElement("div");
+        el.className = "card missing"; el.id = id; el.dataset.sym = sym; el.dataset.src = src;
+        el.innerHTML = `<a class="chartlink" href="${chartUrl(sym, src)}" target="_blank" rel="noopener" title="${sym} のチャートを開く"><span class="ico">${ICON}</span><span class="sym">${sym}</span></a><div class="name">${name}</div>
+          <div class="px">—</div><div class="chg">—</div>
+          <div class="basis"></div>
+          <canvas class="spark"></canvas>
+          <div class="meta"><span class="fund"></span><span class="oi"></span></div>`;
+        grid.appendChild(el);
+      });
+      root.appendChild(sec);
+    });
+  }
+
+  function renderCards() {
+    document.querySelectorAll(".card").forEach(el => {
+      const d = srcMap(el.dataset.src).get(el.dataset.sym);
+      // 同名代替シンボルが両方ない場合は非表示にしてノイズを減らす
+      if (!d) { el.classList.add("missing"); el.style.display = state.xyz.size ? "none" : ""; return; }
+      el.style.display = ""; el.classList.remove("missing");
+      const key = el.dataset.src + ":" + d.sym;
+      const prevMark = state.last.get(key);
+      el.querySelector(".px").textContent = fmtPx(d.mark);
+      const c = el.querySelector(".chg"); c.textContent = fmtPct(d.chg) + " (24h)"; c.className = "chg " + cls(d.chg);
+      el.querySelector(".basis").textContent = isFinite(d.basis) ? `Mark−Oracle ${fmtPct(d.basis)}` : "";
+      el.querySelector(".fund").textContent = isFinite(d.fundAnn) ? `F ${d.fundAnn.toFixed(1)}%/年` : "";
+      el.querySelector(".oi").textContent = "OI " + fmtBig(d.oiUsd);
+      if (prevMark != null && prevMark !== d.mark) {
+        el.classList.remove("flash-up", "flash-down"); void el.offsetWidth;
+        el.classList.add(d.mark > prevMark ? "flash-up" : "flash-down");
+        setTimeout(() => el.classList.remove("flash-up", "flash-down"), 700);
+      }
+      state.last.set(key, d.mark);
+      drawSpark(el.querySelector("canvas"), (state.hist.get(key) || []).map(p => p.c));
+    });
+    // 空になったグループ見出しを隠す
+    document.querySelectorAll("#groups section").forEach(sec => {
+      const any = [...sec.querySelectorAll(".card")].some(c => c.style.display !== "none");
+      sec.style.display = any ? "" : "none";
+    });
+  }
+
+  function renderTable() {
+    const q = $("#filter").value.trim().toUpperCase();
+    const rows = [...state.xyz.values()].filter(d => !q || d.sym.includes(q));
+    const k = state.sortKey, dir = state.sortDir;
+    rows.sort((a, b) => k === "sym" ? a.sym.localeCompare(b.sym) * dir : ((a[k] || 0) - (b[k] || 0)) * dir);
+    $("#allTable tbody").innerHTML = rows.map(d => `<tr data-sym="${d.sym}" class="rowlink">
+      <td><a class="chartlink" href="${chartUrl(d.sym, false)}" target="_blank" rel="noopener" title="${d.sym} のチャートを開く"><span class="ico">${ICON}</span>${d.sym}</a></td><td>${fmtPx(d.mark)}</td><td class="${cls(d.chg)}">${fmtPct(d.chg)}</td>
+      <td class="${cls(d.basis)}">${fmtPct(d.basis)}</td><td>${isFinite(d.fundAnn) ? d.fundAnn.toFixed(1) + "%" : "—"}</td>
+      <td>${fmtBig(d.oiUsd)}</td><td>${fmtBig(d.vlm)}</td></tr>`).join("");
+  }
+
+  async function tick() {
+    try {
+      const [x, m] = await Promise.all([
+        info({ type: "metaAndAssetCtxs", dex: "xyz" }),
+        info({ type: "metaAndAssetCtxs" })
+      ]);
+      state.xyz = parse(x); state.main = parse(m);
+      try { state.lt = await lighterTickers(); } catch (e) { /* Lighter が落ちていても他は表示 */ }
+      state.xyz.forEach(d => pushHist("x:" + d.sym, d.mark));
+      state.main.forEach(d => pushHist("m:" + d.sym, d.mark));
+      state.lt.forEach(d => pushHist("l:" + d.sym, d.mark));
+      renderCards(); renderTable(); queueHistory(); updateChartHeader();
+      $("#dot").className = "dot ok";
+      $("#statusText").textContent = "最終更新 " + new Date().toLocaleTimeString("ja-JP") + `（xyz ${state.xyz.size}銘柄）`;
+      $("#errBox").style.display = "none";
+    } catch (e) {
+      $("#dot").className = "dot err";
+      $("#statusText").textContent = "取得失敗 — 再試行中";
+      const box = $("#errBox");
+      box.style.display = "block";
+      box.textContent = "Hyperliquid API に接続できません（" + e.message + "）。ネットワーク、または API 側の一時的な問題の可能性があります。";
+    }
+    const [st, label] = usMarket();
+    const ms = $("#mktState"); ms.className = "mkt " + st; ms.textContent = label;
+  }
+
+  function start() {
+    clearInterval(timer);
+    tick();
+    timer = setInterval(tick, +$("#interval").value);
+  }
+
+  // ── ローソク足チャート（モーダル） ──
+  const LWC_URL = "https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js";
+  const TZ_SHIFT = -new Date().getTimezoneOffset() * 60;   // 表示をローカル時刻にする
+  const chart = { sym: null, src: "x", iv: "15m", api: null, candle: null, vol: null, ws: null, poll: null, seq: 0 };
+  let lwcPromise = null;
+  function loadLwc() {
+    if (window.LightweightCharts) return Promise.resolve();
+    return lwcPromise ||= new Promise((ok, ng) => {
+      const s = document.createElement("script"); s.src = LWC_URL; s.onload = ok;
+      s.onerror = () => { lwcPromise = null; ng(new Error("チャートライブラリを読み込めません")); };
+      document.head.appendChild(s);
+    });
+  }
+  const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const toBar = c => ({ time: Math.floor(c.t / 1000) + TZ_SHIFT, open: +c.o, high: +c.h, low: +c.l, close: +c.c });
+  const toVol = c => ({ time: Math.floor(c.t / 1000) + TZ_SHIFT, value: +c.v,
+    color: +c.c >= +c.o ? "rgba(34,197,94,.35)" : "rgba(239,68,68,.35)" });
+
+  async function openChart(sym, src, name) {
+    chart.sym = sym; chart.src = src;
+    $("#cmTitle").textContent = sym; $("#cmName").textContent = name || "";
+    $("#cmLink").href = chartUrl(sym, src);
+    $("#cmLink").textContent = VENUE[src] + "で開く ↗";
+    $("#chartModal").classList.add("open");
+    document.body.style.overflow = "hidden";
+    updateChartHeader();
+    await loadChart();
+  }
+  function closeChart() {
+    $("#chartModal").classList.remove("open");
+    document.body.style.overflow = "";
+    stopLive(); chart.sym = null;
+  }
+  function stopLive() {
+    if (chart.ws) { try { chart.ws.close(); } catch (e) {} chart.ws = null; }
+    clearInterval(chart.poll); chart.poll = null;
+  }
+  function updateChartHeader() {
+    if (!chart.sym) return;
+    const d = srcMap(chart.src).get(chart.sym);
+    if (!d) return;
+    $("#cmPx").textContent = fmtPx(d.mark);
+    const c = $("#cmChg"); c.textContent = fmtPct(d.chg) + " (24h)"; c.className = cls(d.chg);
+  }
+
+  async function loadChart() {
+    const my = ++chart.seq;
+    stopLive();
+    document.querySelectorAll("#cmIv button").forEach(b => b.classList.toggle("on", b.dataset.iv === chart.iv));
+    const msg = $("#cmMsg"); msg.textContent = "読み込み中…"; msg.style.display = "grid";
+    try {
+      await loadLwc();
+      const coin = coinOf(chart.sym, chart.src);
+      const cs = await candlesFor(chart.src, chart.sym, chart.iv, 24 * 3600 * 1000);
+      if (my !== chart.seq) return;
+      if (!cs.length) { msg.textContent = "データがありません"; return; }
+      if (!chart.api) {
+        const box = $("#cmChart");
+        chart.api = LightweightCharts.createChart(box, {
+          autoSize: true,
+          layout: { background: { color: "transparent" }, textColor: cssVar("--muted"), fontSize: 11 },
+          grid: { vertLines: { color: cssVar("--line") }, horzLines: { color: cssVar("--line") } },
+          rightPriceScale: { borderColor: cssVar("--line") },
+          timeScale: { borderColor: cssVar("--line"), timeVisible: true, secondsVisible: false },
+          crosshair: { mode: 0 }
+        });
+        chart.candle = chart.api.addCandlestickSeries({
+          upColor: "#22c55e", downColor: "#ef4444", borderVisible: false,
+          wickUpColor: "#22c55e", wickDownColor: "#ef4444"
+        });
+        chart.vol = chart.api.addHistogramSeries({ priceFormat: { type: "volume" }, priceScaleId: "vol", lastValueVisible: false, priceLineVisible: false });
+        chart.api.priceScale("vol").applyOptions({ scaleMargins: { top: 0.82, bottom: 0 } });
+        chart.candle.priceScale().applyOptions({ scaleMargins: { top: 0.08, bottom: 0.22 } });
+      }
+      const px = +cs[cs.length - 1].c;
+      const prec = px >= 10 ? 2 : px >= 1 ? 4 : 5;
+      chart.candle.applyOptions({ priceFormat: { type: "price", precision: prec, minMove: Math.pow(10, -prec) } });
+      chart.candle.setData(cs.map(toBar));
+      chart.vol.setData(cs.map(toVol));
+      chart.api.timeScale().fitContent();
+      msg.style.display = "none";
+      startLive(coin, my, chart.src, chart.sym);
+    } catch (e) {
+      if (my === chart.seq) msg.textContent = "読み込みに失敗しました（" + e.message + "）";
+    }
+  }
+
+  function applyCandle(c) {
+    if (!chart.candle) return;
+    try { chart.candle.update(toBar(c)); chart.vol.update(toVol(c)); } catch (e) {}
+  }
+  function startLive(coin, my, src, sym) {
+    // WebSocket で確定前の足もリアルタイム更新（Hyperliquid）。予備として定期取得も行う
+    if (src !== "l") try {
+      const ws = new WebSocket("wss://api.hyperliquid.xyz/ws");
+      ws.onopen = () => ws.send(JSON.stringify({ method: "subscribe", subscription: { type: "candle", coin, interval: chart.iv } }));
+      ws.onmessage = e => {
+        if (my !== chart.seq) return;
+        const m = JSON.parse(e.data);
+        if (m.channel === "candle" && m.data && m.data.s === coin && m.data.i === chart.iv) applyCandle(m.data);
+      };
+      chart.ws = ws;
+    } catch (e) {}
+    chart.poll = setInterval(async () => {
+      if (my !== chart.seq) return;
+      try { (await candlesFor(src, sym, chart.iv, IV_MS[chart.iv] * 3)).forEach(applyCandle); } catch (e) {}
+    }, src === "l" ? 10000 : 20000);
+  }
+
+  $("#cmIv").addEventListener("click", e => {
+    const b = e.target.closest("button[data-iv]"); if (!b || b.dataset.iv === chart.iv) return;
+    chart.iv = b.dataset.iv; loadChart();
+  });
+  $("#cmClose").addEventListener("click", closeChart);
+  $("#chartModal").addEventListener("click", e => { if (e.target.id === "chartModal") closeChart(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && chart.sym) closeChart(); });
+  $("#groups").addEventListener("click", e => {
+    if (e.target.closest("a")) return;                       // アイコンは外部チャートへ
+    const el = e.target.closest(".card"); if (!el || el.classList.contains("missing")) return;
+    openChart(el.dataset.sym, el.dataset.src, el.querySelector(".name").textContent);
+  });
+  $("#allTable tbody").addEventListener("click", e => {
+    if (e.target.closest("a")) return;
+    const tr = e.target.closest("tr[data-sym]"); if (tr) openChart(tr.dataset.sym, "x", "");
+  });
+
+  document.querySelectorAll("#allTable th").forEach(th => th.addEventListener("click", () => {
+    const k = th.dataset.k;
+    state.sortDir = state.sortKey === k ? -state.sortDir : (k === "sym" ? 1 : -1);
+    state.sortKey = k; renderTable();
+  }));
+  $("#filter").addEventListener("input", renderTable);
+  $("#interval").addEventListener("change", start);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) tick(); });
+
+  buildGroups();
+  start();
+})();
+</script>
+</body>
+</html>
